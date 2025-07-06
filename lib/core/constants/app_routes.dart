@@ -9,21 +9,17 @@ class AppRoutes {
   static const String onboardingScreen = '/onboardingScreen';
   static const String loginScreen = '/loginScreen';
 
-  static Route<dynamic> generateRoute(RouteSettings settings) {
+  static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splashScreen:
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case onboardingScreen:
         return MaterialPageRoute(builder: (_) => OnboardingScreen());
       case loginScreen:
-        return MaterialPageRoute(builder: (_) => MyPhone());
+        return MaterialPageRoute(builder: (_) => LoginScreen());
 
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(child: Text('No route defined for ${settings.name}')),
-          ),
-        );
+        return null;
     }
   }
 }

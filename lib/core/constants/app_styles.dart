@@ -17,4 +17,8 @@ class AppStyles {
       fontSize: 16.sp,
       fontWeight: FontWeight.w500,
       color: AppColors.primaryWhiteTextColor);
+  static final labelTextStyle = TextStyle(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w500,
+      color: AppColors.primaryBlackTextColor);
 }

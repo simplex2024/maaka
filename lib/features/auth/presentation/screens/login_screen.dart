@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:maaakanmoney/core/common_widgets/common_button.dart';
 import 'package:maaakanmoney/core/constants/app_colors.dart';
+import 'package:maaakanmoney/core/constants/app_constants.dart';
+import 'package:maaakanmoney/core/constants/icon_images.dart';
+import 'package:maaakanmoney/features/auth/presentation/widgets/login_google_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -22,30 +25,29 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 40),
-                // Logo
                 Center(
                   child: Image.asset(
-                    'assets/images/app_logo.png',
+                    IconImages.appLogo,
                   ),
                 ),
                 SizedBox(height: 10.0),
                 // App name
                 const Text(
-                  'Maaka',
+                  Constant.maaka,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20),
                 // Welcome text
                 Text(
-                  'Welcome Back to Maaka',
+                  Constant.welcomeBackToMaaka,
                   style:
                       TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  'Local Help at Your Doorstep',
+                  Constant.localHelpAtYourDoorStep,
                   style: TextStyle(
-                      fontSize: 10.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: AppColors.subTitleGreyColor),
                 ),
@@ -53,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   children: [
                     Text(
-                      "Phone Number",
+                      Constant.phoneNumber,
                       style: TextStyle(
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
@@ -66,9 +68,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextFormField(
                   keyboardType: TextInputType.phone,
+                  maxLength: 10,
                   decoration: InputDecoration(
-                    labelText: 'Phone Number',
-                    hintText: 'Enter your mobile number',
+                    hintText: Constant.enterYourMobileNumber,
+                    focusColor: AppColors.primaryButtonColor,
+                    focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: AppColors.primaryButtonColor)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: AppColors.primaryButtonColor)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
@@ -81,71 +90,32 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 60,
                     child: CommonButton(
                       onPressed: () {},
-                      buttonText: "Send OTP",
+                      buttonText: Constant.sendOTP,
                     )),
 
                 const SizedBox(height: 16),
 
-                // Signup link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    Text("Don’t have an account? "),
+                    Text(Constant.donTHaveAnAccount),
                     Text(
-                      "Singup",
+                      Constant.singUp,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 const SizedBox(height: 24),
-
-                // Continue with Google
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: OutlinedButton.icon(
-                    icon: Image.asset('assets/images/google.png', height: 20),
-                    // Use your Google icon
-                    label: Text(
-                      "Continue With Google",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.primaryBlackTextColor),
-                    ),
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.grey),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
+                LoginGoogleWidget(
+                  labelText: Constant.continueWithGoogle,
+                  image: IconImages.googleIconImage,
                 ),
                 const SizedBox(height: 12),
 
-                // Continue with Email
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: OutlinedButton.icon(
-                    icon: Image.asset('assets/images/email.png', height: 20),
-                    label: Text(
-                      "Continue With Email",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.primaryBlackTextColor),
-                    ),
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.grey),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
+                LoginGoogleWidget(
+                  labelText: Constant.continueWithEmail,
+                  image: IconImages.emailIconImage,
+                )
               ],
             ),
           ),
