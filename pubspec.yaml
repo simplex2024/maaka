@@ -72,18 +72,13 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   lottie: ^3.0.0
-  sizer: ^3.0.5
   internet_connection_checker: ^1.0.0+1
   upgrader: ^11.3.1
-  flutter_share: ^2.0.0
-
-
+  share_plus: ^11.0.0
   http: ^0.13.6
   permission_handler: ^11.0.0
-
   change_app_package_name: ^1.1.0
-  external_app_launcher: ^4.0.1
-
+  external_app_launcher: ^4.0.3
   fluttertoast: ^8.0.7
   connectivity_plus: ^6.1.1
   flutter_riverpod: ^2.3.6
@@ -91,7 +86,11 @@ dependencies:
   firebase_messaging: ^15.1.3
   #foreground notification
   flutter_local_notifications: ^18.0.0
-  notification_permissions: ^0.6.1
+#  flutter_screenutil: ^5.9.3
+  flutter_bloc: ^9.1.1
+  sizer: ^3.0.5
+
+
 
   #  //todo: Creating Graphs
   fl_chart: ^0.69.2
@@ -140,16 +139,15 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/final/Login/myntra.png
-    - images/final/splash/
     - images/final/Common/
     - images/final/Login/
     - images/final/SecurityCode/
     - images/final/Dashboard/
-    - images/final/Dashboard/SaveMoney/
     - images/
     - images/final/Onboarding/
     - images/final/Admin/Dashboard/
     - assets/
+    - assets/images/
 #    - images/Icons/DocumentUpload/PhotoSection/
 #    - images/Icons/DocumentUpload/FormSection/
 

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-
-
-
 class ReusableIdProofSection extends StatelessWidget {
   final String? getText;
   final IconData? getIcon;

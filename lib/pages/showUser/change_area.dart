@@ -1,18 +1,11 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:maaakanmoney/components/constants.dart';
-import 'package:maaakanmoney/components/custom_dialog_box.dart';
 import 'package:maaakanmoney/pages/budget_copy/BudgetCopyController.dart';
-import 'package:maaakanmoney/pages/budget_copy/budget_copy_widget.dart';
 import 'package:maaakanmoney/phoneController.dart';
-import 'package:sizer/sizer.dart';
 import 'package:tuple/tuple.dart';
-
 import '../../components/ListView/ListController.dart';
 import '../../components/ListView/ListPageView.dart';
 import '../budget_copy/navigation_drawer/meat_basket_areas/add_new_areaController.dart';
@@ -20,9 +13,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class ChangeArea extends ConsumerStatefulWidget {
   String? getDocID;

@@ -8,7 +8,6 @@ import 'package:maaakanmoney/components/constants.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
 import 'package:maaakanmoney/pages/Onboard/onboardScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sizer/sizer.dart';
 
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../phoneController.dart';
@@ -70,7 +69,9 @@ class _FillingAnimationScreen2State
             context,
             PageRouteBuilder(
               transitionDuration: Duration(milliseconds: 500),
-              pageBuilder: (_, __, ___) => MyPhone(getIsShoppingUserName: shoppingKey,),
+              pageBuilder: (_, __, ___) => MyPhone(
+                getIsShoppingUserName: shoppingKey,
+              ),
               transitionsBuilder: (_, animation, __, child) {
                 return ScaleTransition(
                   scale: Tween<double>(
@@ -109,10 +110,12 @@ class _FillingAnimationScreen2State
         }
       }
     });
-    subscription = Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> result) {
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((List<ConnectivityResult> result) {
       print("aaaaaa$result");
 
-      if(result != null || result.isNotEmpty){
+      if (result != null || result.isNotEmpty) {
         ref.read(connectivityProvider.notifier).state = result[0];
       }
     });
@@ -124,8 +127,6 @@ class _FillingAnimationScreen2State
     _controller.dispose();
     super.dispose();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -152,39 +153,42 @@ class _FillingAnimationScreen2State
                             child: Container(
                               alignment: Alignment.centerRight,
                               child: Stack(children: [
-                              Positioned.fill(
-                              child: Align(
-                              alignment: Alignment.centerRight,
-                                child: Stack(children: [
-                                  CustomPaint(
-                                    painter: CombinedCustomPainter3(
-                                        fillColor1: LinearGradient(
-                                          colors: [
-                                            FlutterFlowTheme.of(context)
-                                                .secondary1,
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ],
-                                          begin: Alignment.centerLeft,
-                                          end: Alignment.bottomLeft,
-                                        ),
-                                        fillColor2:
-                                        FlutterFlowTheme.of(context)
-                                            .secondary2,
-                                        fillColor3: Colors.green),
+                                Positioned.fill(
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Stack(children: [
+                                      CustomPaint(
+                                        painter: CombinedCustomPainter3(
+                                            fillColor1: LinearGradient(
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary1,
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ],
+                                              begin: Alignment.centerLeft,
+                                              end: Alignment.bottomLeft,
+                                            ),
+                                            fillColor2:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary2,
+                                            fillColor3: Colors.green),
+                                      ),
+                                    ]),
                                   ),
-                                ]),
-                              ),
-                            ),
-                          Positioned.fill(
-                      child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                          "MAAKA",
-                          style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Constants.primary,fontWeight: FontWeight.bold)
-              ),
-          ),
-          ),
+                                ),
+                                Positioned.fill(
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Text("MAAKA",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineLarge
+                                            ?.copyWith(
+                                                color: Constants.primary,
+                                                fontWeight: FontWeight.bold)),
+                                  ),
+                                ),
                               ]),
                             ),
                           ),
@@ -214,14 +218,24 @@ class _FillingAnimationScreen2State
                                         children: [
                                           Text(
                                             "Business",
-                                            style:
-                                            Theme.of(context).textTheme.headlineMedium?.copyWith(color: Constants.secondary,fontWeight: FontWeight.bold),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineMedium
+                                                ?.copyWith(
+                                                    color: Constants.secondary,
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                             textAlign: TextAlign.start,
                                           ),
                                           Text(
                                             "Made Simple!",
-                                            style:
-                                            Theme.of(context).textTheme.headlineSmall?.copyWith(color: Constants.secondary2,fontWeight: FontWeight.normal),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineSmall
+                                                ?.copyWith(
+                                                    color: Constants.secondary2,
+                                                    fontWeight:
+                                                        FontWeight.normal),
                                             textAlign: TextAlign.start,
                                           ),
                                         ],
@@ -231,7 +245,6 @@ class _FillingAnimationScreen2State
                                 ],
                               ),
                             ),
-
                           ],
                         ),
                       ),
@@ -246,7 +259,6 @@ class _FillingAnimationScreen2State
     );
   }
 }
-
 
 class CombinedCustomPainter3 extends CustomPainter {
   final Gradient fillColor1;
@@ -299,8 +311,8 @@ class CombinedCustomPainter3 extends CustomPainter {
 
   Path _createCustomShapePath(Size size,
       {required double rotationAngle,
-        double offsetX = 0.0,
-        double offsetY = 0.0}) {
+      double offsetX = 0.0,
+      double offsetY = 0.0}) {
     final double rectWidth = 450.0;
     final double rectHeight = 600.0;
     final double cornerRadius = 100.0;
@@ -329,4 +341,3 @@ class CombinedCustomPainter3 extends CustomPainter {
     return false;
   }
 }
-

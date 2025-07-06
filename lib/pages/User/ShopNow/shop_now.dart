@@ -1,17 +1,12 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:googleapis_auth/auth.dart';
 import 'package:googleapis_auth/auth_io.dart';
-import 'package:http/http.dart';
 import 'package:maaakanmoney/pages/User/ShopNow/shop_now_model.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../components/NotificationService.dart';
 import '../../../components/constants.dart';
 import '../../../components/reusable_code.dart';

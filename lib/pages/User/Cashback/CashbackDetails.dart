@@ -2,37 +2,20 @@
 
 import 'dart:async';
 import 'dart:math' as math;
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_share/flutter_share.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:lottie/lottie.dart';
-import 'package:maaakanmoney/components/ReusableWidget/ReusableCard.dart';
 import 'package:maaakanmoney/components/constants.dart';
-import 'package:maaakanmoney/pages/Auth/mpin.dart';
-import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
 import 'package:maaakanmoney/pages/User/TransactionHist/TransactionHistory.dart';
 import 'package:maaakanmoney/pages/User/UserScreen_Notifer.dart';
-import 'package:maaakanmoney/pages/showUser/showUserController.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:sizer/sizer.dart';
-import 'package:tuple/tuple.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../../../components/custom_dialog_box.dart';
 import '../../../phoneController.dart';
 import '../../budget_copy/BudgetCopyController.dart';
-import '../../chatScreen.dart';
-import '../Profile/Profile.dart';
 import '../Request Money/RequestMoney.dart';
 import '../SaveMoney/SaveMoney.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

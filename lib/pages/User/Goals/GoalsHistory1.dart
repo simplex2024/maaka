@@ -2,22 +2,18 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:googleapis_auth/auth.dart';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:maaakanmoney/pages/User/Goals/AddGoals.dart';
 import 'package:maaakanmoney/pages/User/Goals/GoalHistoryNotifier1.dart';
 import 'package:sizer/sizer.dart';
 import 'package:tuple/tuple.dart';
-import 'dart:math' as math;
 import '../../../components/NotificationService.dart';
 import '../../../components/constants.dart';
 import '../../../components/reusable_code.dart';
