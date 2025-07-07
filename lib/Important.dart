@@ -6,6 +6,14 @@
 
 
 //todo:- Live Issue
+// 1. exiting notification issue - in progree
+// 2. ios notification - in progress
+
+
+
+//todo:- --------------------------
+
+
 //todo:- todo list
 /// 1. highlighting centre card in grocery model not working for user under refferer - Completed
 /// 2. while deleting any posts, some times, pic alone get deleted,if no pic, then that record unable to delete - Completed
