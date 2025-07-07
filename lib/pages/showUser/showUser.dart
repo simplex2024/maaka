@@ -1,16 +1,10 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously, invalid_return_type_for_catch_error, prefer_adjacent_string_concatenation
-
-// import 'dart:html';
-
 import 'dart:async';
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:maaakanmoney/components/ListView/ListController.dart';
 import 'package:maaakanmoney/components/ReusableWidget/BottomSheet.dart';
 import 'package:maaakanmoney/components/constants.dart';
 import 'package:maaakanmoney/components/custom_dialog_box.dart';
@@ -19,14 +13,9 @@ import 'package:maaakanmoney/pages/chatScreen.dart';
 import 'package:maaakanmoney/pages/showUser/showUserController.dart';
 import 'package:maaakanmoney/pages/update_money/update_money_widget.dart';
 import 'package:maaakanmoney/phoneController.dart';
-import 'package:maaakanmoney/verify.dart';
 import 'package:tuple/tuple.dart';
-import 'package:lottie/lottie.dart';
-import 'package:sizer/sizer.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

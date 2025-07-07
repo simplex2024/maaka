@@ -13,7 +13,6 @@ import 'package:maaakanmoney/pages/budget_copy/BudgetCopyController.dart';
 import 'package:maaakanmoney/pages/budget_copy/budget_copy_widget.dart';
 import 'package:maaakanmoney/phoneController.dart';
 import 'package:maaakanmoney/verify.dart';
-import 'package:sizer/sizer.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../components/ListView/ListController.dart';

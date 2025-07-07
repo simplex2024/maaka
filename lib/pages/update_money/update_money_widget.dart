@@ -10,18 +10,14 @@ import 'package:maaakanmoney/components/constants.dart';
 import 'package:maaakanmoney/components/custom_dialog_box.dart';
 import 'package:maaakanmoney/phoneController.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../flutter_flow/form_field_controller.dart';
 import '../budget_copy/BudgetCopyController.dart';
 import '../showUser/showUserController.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/budget_copy/budget_copy_widget.dart';
 import 'package:flutter/material.dart';
-import 'update_money_model.dart';
 export 'update_money_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class UpdateMoneyWidget extends ConsumerStatefulWidget {
   UpdateMoneyWidget(

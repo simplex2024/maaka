@@ -2,7 +2,6 @@
 
 // import 'dart:html';
 import 'dart:async';
-import 'dart:io';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -16,12 +15,12 @@ import 'package:maaakanmoney/pages/splash/SplashScreen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:upgrader/upgrader.dart';
 import 'components/constants.dart';
+import 'core/constants/app_routes.dart';
 import 'firebase_options.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-
 
 ///background notification, receives even without below function,below function is used to view incoming notification data.
 @pragma('vm:entry-point')
@@ -34,12 +33,10 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     print('Message notification: ${message.notification?.title}');
     print('Message notification: ${message.notification?.body}');
   }
-
 }
 
 /// Initialize the [FlutterLocalNotificationsPlugin] package.
 late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -85,9 +82,9 @@ void main() async {
   // String? token = await messaging.getToken();
   String? token;
   //handling null
-  try{
+  try {
     token = await messaging.getToken();
-  }catch(e){
+  } catch (e) {
     print(e);
   }
 
@@ -109,7 +106,6 @@ void main() async {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-
 late AndroidNotificationChannel channel;
 
 bool isFlutterLocalNotificationsInitialized = false;
@@ -122,7 +118,7 @@ Future<void> setupFlutterNotifications() async {
     'high_importance_channel', // id
     'High Importance Notifications', // title
     description:
-    'This channel is used for important notifications.', // description
+        'This channel is used for important notifications.', // description
     importance: Importance.high,
   );
 
@@ -134,7 +130,7 @@ Future<void> setupFlutterNotifications() async {
   /// default FCM channel to enable heads up notifications.
   await flutterLocalNotificationsPlugin
       .resolvePlatformSpecificImplementation<
-      AndroidFlutterLocalNotificationsPlugin>()
+          AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
 
   /// Update the iOS foreground notification presentation options to allow
@@ -145,7 +141,6 @@ Future<void> setupFlutterNotifications() async {
     sound: true,
   );
   isFlutterLocalNotificationsInitialized = true;
-
 }
 
 class MyApp extends StatefulWidget {
@@ -160,13 +155,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   String? initialMessage;
   bool _resolved = false;
 
   Locale? _locale = FFLocalizations.getStoredLocale();
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
-
 
   // String primaryColor = '#0B4D40';
   String primaryColor = '#101213';
@@ -210,15 +203,13 @@ class _MyAppState extends State<MyApp> {
     //   // }
     // });
 
-///foreground notification receives, below method triggers when
+    ///foreground notification receives, below method triggers when
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       showFlutterNotification(message);
     });
 
     super.initState();
   }
-
-
 
   void showFlutterNotification(RemoteMessage message) {
     RemoteNotification? notification = message.notification;
@@ -243,7 +234,6 @@ class _MyAppState extends State<MyApp> {
       );
     }
   }
-
 
   ///below two functions responsible for showing image in notification
   // Future<void> showFlutterNotification(RemoteMessage message) async {
@@ -299,8 +289,6 @@ class _MyAppState extends State<MyApp> {
   //   await file.writeAsBytes(response.bodyBytes);
   //   return filePath;
   // }
-
-
 
   //todo:- 18.6.24 use below code, to show notification with and without image by checking for image url
   // Future<void> showFlutterNotification(RemoteMessage message) async {
@@ -379,8 +367,6 @@ class _MyAppState extends State<MyApp> {
   //   return filePath;
   // }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
@@ -419,34 +405,119 @@ class _MyAppState extends State<MyApp> {
           brightness: Brightness.light,
           primarySwatch: getColorFromHex(constantsPrimaryColor),
           textTheme: TextTheme(
-            headlineLarge: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            headlineMedium: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            headlineSmall: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            titleLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            titleMedium: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            titleSmall: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            bodyLarge: TextStyle(fontSize: 14.0, color: Colors.black,overflow: TextOverflow.visible,),
-            bodyMedium: TextStyle(fontSize: 12.0, color: Colors.black,overflow: TextOverflow.visible,),
-            bodySmall: TextStyle(fontSize: 10.0, color: Colors.black,overflow: TextOverflow.visible,),
+            headlineLarge: TextStyle(
+              fontSize: 30.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            headlineMedium: TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            headlineSmall: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            titleLarge: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            titleMedium: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            titleSmall: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            bodyLarge: TextStyle(
+              fontSize: 14.0,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            bodyMedium: TextStyle(
+              fontSize: 12.0,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            bodySmall: TextStyle(
+              fontSize: 10.0,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
           ),
         ),
         darkTheme: ThemeData(
           brightness: Brightness.light,
           primarySwatch: getColorFromHex(constantsPrimaryColor),
           textTheme: TextTheme(
-            headlineLarge: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            headlineMedium: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            headlineSmall: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            titleLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            titleMedium: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            titleSmall: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black,overflow: TextOverflow.visible,),
-            bodyLarge: TextStyle(fontSize: 14.0, color: Colors.black,overflow: TextOverflow.visible,),
-            bodyMedium: TextStyle(fontSize: 12.0, color: Colors.black,overflow: TextOverflow.visible,),
-            bodySmall: TextStyle(fontSize: 10.0, color: Colors.black,overflow: TextOverflow.visible,),
+            headlineLarge: TextStyle(
+              fontSize: 30.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            headlineMedium: TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            headlineSmall: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            titleLarge: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            titleMedium: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            titleSmall: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            bodyLarge: TextStyle(
+              fontSize: 14.0,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            bodyMedium: TextStyle(
+              fontSize: 12.0,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
+            bodySmall: TextStyle(
+              fontSize: 10.0,
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+            ),
           ),
         ),
         themeMode: _themeMode,
-        home: FillingAnimationScreen2(),
+        onGenerateRoute: AppRoutes.generateRoute,
+        initialRoute: AppRoutes.splashScreen,
       );
     });
   }

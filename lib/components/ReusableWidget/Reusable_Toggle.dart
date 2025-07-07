@@ -1,5 +1,4 @@
 //todo:- Reusable Toggle switch
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maaakanmoney/components/constants.dart';
 import 'package:sizer/sizer.dart';

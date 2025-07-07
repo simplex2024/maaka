@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -8,16 +7,12 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:googleapis_auth/auth.dart';
 import 'package:googleapis_auth/auth_io.dart';
-import 'package:sizer/sizer.dart';
 import 'package:tuple/tuple.dart';
-
 import '../../../components/ListView/ListController.dart';
 import '../../../components/ListView/ListPageView.dart';
 import '../../../components/NotificationService.dart';
 import '../../../components/constants.dart';
-import '../../../components/custom_dialog_box.dart';
 import '../../../flutter_flow/flutter_flow_theme.dart';
 import '../../../flutter_flow/flutter_flow_util.dart';
 import '../../../flutter_flow/flutter_flow_widgets.dart';
@@ -26,6 +21,8 @@ import '../../budget_copy/budget_copy_widget.dart';
 import '../UserScreen_Notifer.dart';
 import '../Userscreen_widget.dart';
 import 'GoalHistoryNotifier1.dart';
+import 'package:sizer/sizer.dart';
+
 
 class AddGoalWidget extends ConsumerStatefulWidget {
   AddGoalWidget({

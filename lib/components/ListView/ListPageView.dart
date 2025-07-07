@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:lottie/lottie.dart';
 import 'dart:math' as math;
-
-import 'package:sizer/sizer.dart';
 import 'package:tuple/tuple.dart';
-
-import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import '../constants.dart';
 import '../icon_content.dart';

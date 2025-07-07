@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously, unused_import, must_be_immutable, avoid_print
 
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -15,17 +15,14 @@ import 'package:lottie/lottie.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
 import 'package:maaakanmoney/pages/User/Userscreen_widget.dart';
 import 'package:maaakanmoney/verify.dart';
-import 'package:pinput/pinput.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sizer/sizer.dart';
 import 'package:upgrader/upgrader.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:sizer/sizer.dart';
 import '../../components/NotificationService.dart';
 import '../../components/constants.dart';
 import '../../components/custom_dialog_box.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
-import '../../flutter_flow/flutter_flow_widgets.dart';
 import '../../phoneController.dart';
 
 class MpinPageWidget extends ConsumerStatefulWidget {
