@@ -21,4 +21,5 @@ class AppStyles {
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
       color: AppColors.primaryBlackTextColor);
+
 }
