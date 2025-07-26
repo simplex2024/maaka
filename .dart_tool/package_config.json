@@ -741,7 +741,7 @@
     },
     {
       "name": "pinput",
-      "rootUri": "file:///C:/Users/gbama/AppData/Local/Pub/Cache/hosted/pub.dev/pinput-5.0.0",
+      "rootUri": "file:///C:/Users/gbama/AppData/Local/Pub/Cache/hosted/pub.dev/pinput-5.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
@@ -1136,7 +1136,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-07-05T17:50:54.551710Z",
+  "generated": "2025-07-12T09:41:33.039748Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///C:/Development/flutter",
