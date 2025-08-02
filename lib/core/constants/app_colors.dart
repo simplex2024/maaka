@@ -7,4 +7,5 @@ class AppColors {
   static const greyDotColor = Color.fromRGBO(217, 217, 217, 1);
   static const subTitleGreyColor = Color.fromRGBO(0, 0, 0, 0.28);
   static const greySixColor = Color.fromRGBO(0, 0, 0, 0.6);
+  static const greenColor = Color.fromRGBO(38, 173, 114, 1);
 }

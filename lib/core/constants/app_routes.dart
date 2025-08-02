@@ -3,6 +3,7 @@ import 'package:maaakanmoney/features/auth/presentation/screens/login_screen.dar
 import 'package:maaakanmoney/features/auth/presentation/screens/onboarding_screen.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/otp_screen.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/spalsh_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
 
 class AppRoutes {
@@ -10,6 +11,7 @@ class AppRoutes {
   static const String onboardingScreen = '/onboardingScreen';
   static const String loginScreen = '/loginScreen';
   static const String otpScreen = '/otpScreen';
+  static const String dashboardScreen = '/dashboardScreen';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -21,6 +23,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case otpScreen:
         return MaterialPageRoute(builder: (_) => OtpScreen());
+      case dashboardScreen:
+        return MaterialPageRoute(builder: (_) => DashboardScreen());
 
       default:
         return null;

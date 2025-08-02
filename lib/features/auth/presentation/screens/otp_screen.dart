@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:maaakanmoney/core/common_widgets/common_button.dart';
 import 'package:maaakanmoney/core/constants/app_colors.dart';
 import 'package:maaakanmoney/core/constants/app_constants.dart';
+import 'package:maaakanmoney/core/constants/app_routes.dart';
 import 'package:maaakanmoney/core/constants/app_styles.dart';
 import 'package:maaakanmoney/core/constants/icon_images.dart';
 import 'package:maaakanmoney/features/auth/presentation/widgets/login_google_widget.dart';
@@ -115,7 +116,9 @@ class _OtpScreenState extends State<OtpScreen> {
                     width: double.infinity,
                     height: 60,
                     child: CommonButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.dashboardScreen);
+                      },
                       buttonText: Constant.verifyAndContinue,
                     )),
 
