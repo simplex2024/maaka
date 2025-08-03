@@ -14,6 +14,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:lottie/lottie.dart';
+import 'package:maaakanmoney/core/common_widgets/common_button.dart';
+import 'package:maaakanmoney/core/constants/app_colors.dart';
+import 'package:maaakanmoney/core/constants/app_constants.dart';
+import 'package:maaakanmoney/core/constants/app_routes.dart';
+import 'package:maaakanmoney/core/constants/icon_images.dart';
+import 'package:maaakanmoney/features/auth/presentation/widgets/login_google_widget.dart';
 import 'package:maaakanmoney/flutter_flow/flutter_flow_theme.dart';
 import 'package:maaakanmoney/flutter_flow/flutter_flow_widgets.dart';
 import 'package:maaakanmoney/pages/User/Userscreen_widget.dart';
@@ -94,10 +100,12 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
 
     getNotificationAccessToken();
 
-     subscription = Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> result) {
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((List<ConnectivityResult> result) {
       print("aaaaaa$result");
 
-      if(result != null || result.isNotEmpty){
+      if (result != null || result.isNotEmpty) {
         ref.read(connectivityProvider.notifier).state = result[0];
       }
     });
@@ -111,7 +119,7 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
 
   Future<void> getNotificationAccessToken() async {
     final String token =
-    await getAccessToken(); // Assume this is your async method to fetch the token
+        await getAccessToken(); // Assume this is your async method to fetch the token
     // setState(() {
     Constants.accessTokenFrNotificn = token; // Store the token in the state
     // });
@@ -143,7 +151,6 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
         .loadString('images/maakanmoney-a6874-9f449586b9b5.json');
     return json.decode(jsonData);
   }
-
 
   // Future<void> isSigninAsShoppingUser(BuildContext context) async {
   //   try {
@@ -185,7 +192,7 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
   Future<void> getMeatBasketAdminAccess(BuildContext context) async {
     try {
       QuerySnapshot querySnapshot =
-      await FirebaseFirestore.instance.collection('MaakaAdminAccess').get();
+          await FirebaseFirestore.instance.collection('MaakaAdminAccess').get();
       querySnapshot.docs.forEach((doc) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
@@ -193,7 +200,6 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
         Constants.getMeatBasketAdminAccess = data['meatBasketAdmin'] ?? "";
         Constants.getMaakaAdminPrimary = data['maakaAdminPrimary'] ?? "";
         Constants.getMaakaAdminSecondary = data['maakaAdminSecondary'] ?? "";
-
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -203,7 +209,117 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
     }
   }
 
-  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 40),
+                Center(
+                  child: Image.asset(
+                    IconImages.appLogo,
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                // App name
+                const Text(
+                  Constant.maaka,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20),
+                // Welcome text
+                Text(
+                  Constant.welcomeBackToMaaka,
+                  style:
+                      TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 14),
+                Text(
+                  Constant.localHelpAtYourDoorStep,
+                  style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.subTitleGreyColor),
+                ),
+                const SizedBox(height: 32),
+                Row(
+                  children: [
+                    Text(
+                      Constant.phoneNumber,
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.primaryBlackTextColor),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 7.0,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    hintText: Constant.enterYourMobileNumber,
+                    focusColor: AppColors.primaryButtonColor,
+                    focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: AppColors.primaryButtonColor)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: AppColors.primaryButtonColor)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                            BorderSide(color: AppColors.primaryButtonColor)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                    width: double.infinity,
+                    height: 60,
+                    child: CommonButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.otpScreen);
+                      },
+                      buttonText: Constant.sendOTP,
+                    )),
+
+                const SizedBox(height: 16),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(Constant.donTHaveAnAccount),
+                    Text(
+                      Constant.singUp,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                LoginGoogleWidget(
+                  labelText: Constant.continueWithGoogle,
+                  image: IconImages.googleIconImage,
+                ),
+                const SizedBox(height: 12),
+
+                LoginGoogleWidget(
+                  labelText: Constant.continueWithEmail,
+                  image: IconImages.emailIconImage,
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+/*  @override
   Widget build(BuildContext context) {
     return UpgradeAlert(
       // canDismissDialog: false, // This forces the update by disallowing dialog dismissal
@@ -1172,7 +1288,7 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
         // showLater: false,  // Hide the "Later" button
       ),
     );
-  }
+  }*/
 
   Widget buildLinkItem(
       BuildContext context, String name, String imagePath, String? url) {
@@ -1290,39 +1406,41 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
 
           bool isNewUse = await isNewUser("+91" + PhoneController.text);
 
-          if (PhoneController.text == (Constants.getMaakaAdminSecondary ?? "") ||
+          if (PhoneController.text ==
+                  (Constants.getMaakaAdminSecondary ?? "") ||
               PhoneController.text == (Constants.getMaakaAdminPrimary ?? "") ||
-              PhoneController.text == (Constants.getMeatBasketAdminAccess ?? "")) {
-
-
-            String? token = await NotificationService
-                .getDocumentIDsAndData();
+              PhoneController.text ==
+                  (Constants.getMeatBasketAdminAccess ?? "")) {
+            String? token = await NotificationService.getDocumentIDsAndData();
             if (token != null) {
-              Response? response = await NotificationService
-                  .postNotificationRequest(
-                  token,
-                  "Hi Super Admin,\nNew Admin Login Found!",
-                  "Check Whether Super Admin Logs In");
+              Response? response =
+                  await NotificationService.postNotificationRequest(
+                      token,
+                      "Hi Super Admin,\nNew Admin Login Found!",
+                      "Check Whether Super Admin Logs In");
               // Handle the response as needed
             } else {
               print("Problem in getting Token");
             }
 
-
-
             Constants.isAdmin = true;
 
             //todo:- 30.11.23 - if login with - 0805080588, means , that device token is admin app token, user app through notification to that token,means that device receives notifcation from users
-            if (PhoneController.text == (Constants.getMaakaAdminPrimary ?? "")) {
+            if (PhoneController.text ==
+                (Constants.getMaakaAdminPrimary ?? "")) {
               Constants.isAdmin2 = true;
             }
 
             //todo:30.12.24 - meat order list
-            if (PhoneController.text == (Constants.getMeatBasketAdminAccess ?? "")) {
+            if (PhoneController.text ==
+                (Constants.getMeatBasketAdminAccess ?? "")) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>  OrdersScreen(getUserType: '0', getAdminMobileNo: '',),
+                  builder: (context) => OrdersScreen(
+                    getUserType: '0',
+                    getAdminMobileNo: '',
+                  ),
                 ),
               ).then((value) {
                 //todo:- below code refresh firebase records automatically when come back to same screen
@@ -1335,7 +1453,10 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) =>  BudgetCopyWidget(getUserType: "0", getAdminMobileNo: '',),
+                builder: (context) => BudgetCopyWidget(
+                  getUserType: "0",
+                  getAdminMobileNo: '',
+                ),
               ),
             );
           } else {
@@ -1366,11 +1487,12 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
               //   ),
               // );
 
-
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>  AdduserWidget1(getMobile: PhoneController.text,),
+                  builder: (context) => AdduserWidget1(
+                    getMobile: PhoneController.text,
+                  ),
                 ),
               ).then((value) {
                 //todo:- below code refresh firebase records automatically when come back to same screen
@@ -1399,15 +1521,13 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
               //   ),
               // );
 
-
-
               //check below code which goes with mpin
               Navigator.push(
                 context,
                 PageRouteBuilder(
                   transitionDuration: Duration(milliseconds: 500),
                   pageBuilder: (_, __, ___) => MpinSetUp(
-                    getMobile:  "+91" + PhoneController.text,
+                    getMobile: "+91" + PhoneController.text,
                   ),
                   transitionsBuilder: (_, animation, __, child) {
                     return ScaleTransition(
@@ -1422,8 +1542,6 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
               );
 
               // Constants.showToast("User Already Exists!", ToastGravity.CENTER);
-
-
             }
           }
         } else {
@@ -1910,8 +2028,6 @@ class CustomAlertDialog {
     );
   }
 
-
-
   static showCommisionReqSuccessComDialog(
       BuildContext context, TextEditingController getTextController) {
     String? name = '';
@@ -2066,9 +2182,12 @@ class SignUpState extends ConsumerState<SignUp> {
   @override
   Widget build(BuildContext context) {
     return UpgradeAlert(
-      shouldPopScope: () => false, // Disables back button
-      showIgnore: false, // Hide the "Ignore" button
-      showLater: false,  // Hide the "Later" button
+      shouldPopScope: () => false,
+      // Disables back button
+      showIgnore: false,
+      // Hide the "Ignore" button
+      showLater: false,
+      // Hide the "Later" button
       child: Scaffold(
         backgroundColor: Colors.white,
         body: GestureDetector(
@@ -2350,11 +2469,11 @@ class SignUpState extends ConsumerState<SignUp> {
         ),
       ),
       upgrader: Upgrader(
-        // canDismissDialog: false, // This forces the update by disallowing dialog dismissal
-        // shouldPopScope: () => false, // Disables back button
-        // showIgnore: false, // Hide the "Ignore" button
-        // showLater: false,  // Hide the "Later" button
-      ),
+          // canDismissDialog: false, // This forces the update by disallowing dialog dismissal
+          // shouldPopScope: () => false, // Disables back button
+          // showIgnore: false, // Hide the "Ignore" button
+          // showLater: false,  // Hide the "Later" button
+          ),
     );
   }
 }
@@ -2408,9 +2527,12 @@ class ShoppingSignUpState extends ConsumerState<ShoppingSignUp> {
   @override
   Widget build(BuildContext context) {
     return UpgradeAlert(
-      shouldPopScope: () => false, // Disables back button
-      showIgnore: false, // Hide the "Ignore" button
-      showLater: false,  // Hide the "Later" button
+      shouldPopScope: () => false,
+      // Disables back button
+      showIgnore: false,
+      // Hide the "Ignore" button
+      showLater: false,
+      // Hide the "Later" button
       child: Scaffold(
         backgroundColor: Colors.white,
         body: GestureDetector(
@@ -2687,17 +2809,18 @@ class ShoppingSignUpState extends ConsumerState<ShoppingSignUp> {
                                                           await SharedPreferences
                                                               .getInstance();
                                                       prefs.setString(
-                                                          "ShoppingUser", "$name / $mobNumber");
+                                                          "ShoppingUser",
+                                                          "$name / $mobNumber");
 
-                                                      String? token = await NotificationService.getDocumentIDsAndData();
-                                                      Response? response = await NotificationService
-                                                          .postNotificationRequest(
-                                                          token ?? "",
-                                                          "Hi Admin,\nNew Shopping User Signed Up!",
-                                                          "name - $name, mobile - $mobNumber\nHurry up, let's give Assistance.");
-
-
-
+                                                      String? token =
+                                                          await NotificationService
+                                                              .getDocumentIDsAndData();
+                                                      Response? response =
+                                                          await NotificationService
+                                                              .postNotificationRequest(
+                                                                  token ?? "",
+                                                                  "Hi Admin,\nNew Shopping User Signed Up!",
+                                                                  "name - $name, mobile - $mobNumber\nHurry up, let's give Assistance.");
 
                                                       setState(() {
                                                         nameController.text =
@@ -2770,11 +2893,11 @@ class ShoppingSignUpState extends ConsumerState<ShoppingSignUp> {
         ),
       ),
       upgrader: Upgrader(
-        // canDismissDialog: false, // This forces the update by disallowing dialog dismissal
-        // shouldPopScope: () => false, // Disables back button
-        // showIgnore: false, // Hide the "Ignore" button
-        // showLater: false,  // Hide the "Later" button
-      ),
+          // canDismissDialog: false, // This forces the update by disallowing dialog dismissal
+          // shouldPopScope: () => false, // Disables back button
+          // showIgnore: false, // Hide the "Ignore" button
+          // showLater: false,  // Hide the "Later" button
+          ),
     );
   }
 }

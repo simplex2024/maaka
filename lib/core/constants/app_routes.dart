@@ -5,6 +5,7 @@ import 'package:maaakanmoney/features/auth/presentation/screens/otp_screen.dart'
 import 'package:maaakanmoney/features/auth/presentation/screens/spalsh_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
+import 'package:maaakanmoney/pages/Onboard/onboardScreen.dart';
 
 class AppRoutes {
   static const String splashScreen = '/splashScreen';
@@ -17,10 +18,18 @@ class AppRoutes {
     switch (settings.name) {
       case splashScreen:
         return MaterialPageRoute(builder: (_) => SplashScreen());
-      case onboardingScreen:
+    /*  case onboardingScreen:
         return MaterialPageRoute(builder: (_) => OnboardingScreen());
       case loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+      case otpScreen:
+        return MaterialPageRoute(builder: (_) => OtpScreen());
+      case dashboardScreen:
+        return MaterialPageRoute(builder: (_) => DashboardScreen());*/
+      case onboardingScreen:
+        return MaterialPageRoute(builder: (_) => OnBoard());
+      case loginScreen:
+        return MaterialPageRoute(builder: (_) => MyPhone());
       case otpScreen:
         return MaterialPageRoute(builder: (_) => OtpScreen());
       case dashboardScreen:
