@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:maaakanmoney/core/common_widgets/common_button.dart';
+import 'package:maaakanmoney/core/constants/app_colors.dart';
+import 'package:maaakanmoney/core/constants/app_routes.dart';
+import 'package:maaakanmoney/features/auth/presentation/screens/onboarding_screen.dart';
 import 'package:maaakanmoney/flutter_flow/flutter_flow_theme.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
 import 'package:maaakanmoney/pages/Onboard/onboard_model.dart';
@@ -94,7 +98,183 @@ class _OnBoardState extends State<OnBoard> {
     await prefs.setInt('onBoard', isViewed);
   }
 
+  final List<OnboardingContent> onboardingPages = [
+    OnboardingContent(
+      image: 'assets/images/onboarding_screen1_img.png',
+      title: 'Order Easily, Anytime',
+      description:
+          'Place your order from nearby stores with just a few taps. Simple, safe, and convenient.',
+    ),
+    OnboardingContent(
+      image: 'assets/images/onboarding_screen2_img.png',
+      title: 'Earn Pocket Money by Helping Others',
+      description:
+          '"Accept delivery requests from nearby elders, deliver with kindness, and grow your savings every day."',
+    ),
+    OnboardingContent(
+      image: 'assets/images/onboarding_screen3_img.png',
+      title: 'Helped by Youth Around You',
+      description:
+          'Local students earn pocket money by helping with deliveries. You support their savings journey.',
+    ),
+  ];
+
   @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: onboardingPages.length,
+              onPageChanged: (index) => setState(() => currentIndex = index),
+              itemBuilder: (_, index) => Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 50),
+                    Image.asset(onboardingPages[index].image, height: 300),
+                    const SizedBox(height: 40),
+                    Text(
+                      onboardingPages[index].title,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      onboardingPages[index].description,
+                      style: const TextStyle(fontSize: 16, color: Colors.grey),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    onboardingPages.length,
+                    (index) => AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      height: 8,
+                      width: currentIndex == index ? 20 : 8,
+                      decoration: BoxDecoration(
+                        color: currentIndex == index
+                            ? AppColors.primaryButtonColor
+                            : Colors.grey,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [
+                    currentIndex == screens.length - 1
+                        ? Container()
+                        : TextButton(
+                            onPressed: () {
+                              _storeOnboardInfo();
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MyPhone()));
+                            },
+                            child: const Text(
+                              "Skip",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.blueGrey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                    CommonButton(
+                      buttonText: 'Next',
+                      onPressed: () async {
+                        if (currentIndex == onboardingPages.length - 1) {
+                          await _storeOnboardInfo();
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          var loginKey = prefs.getString("LoginSuccessuser1");
+                          var mPin = prefs.getString("Mpin");
+                          if (loginKey == null ||
+                              loginKey == "" ||
+                              loginKey!.isEmpty) {
+                            // Navigator.pushReplacement(
+                            //     context, MaterialPageRoute(builder: (context) => const MyPhone()));
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                transitionDuration: Duration(milliseconds: 500),
+                                pageBuilder: (_, __, ___) => MyPhone(),
+                                transitionsBuilder: (_, animation, __, child) {
+                                  return ScaleTransition(
+                                    scale: Tween<double>(
+                                      begin: 0.0,
+                                      // You can adjust the start scale
+                                      end: 1.0, // You can adjust the end scale
+                                    ).animate(animation),
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          } else {
+                            String? myString = loginKey;
+                            String lastFourDigits = (myString ?? "")
+                                .substring((myString ?? "").length - 4);
+
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                transitionDuration: Duration(milliseconds: 500),
+                                pageBuilder: (_, __, ___) => MpinPageWidget(
+                                  getMobileNo: loginKey ?? "",
+                                  getMpin: mPin,
+                                ),
+                                transitionsBuilder: (_, animation, __, child) {
+                                  return ScaleTransition(
+                                    scale: Tween<double>(
+                                      begin: 0.0,
+                                      // You can adjust the start scale
+                                      end: 1.0, // You can adjust the end scale
+                                    ).animate(animation),
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          }
+                        }
+
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeIn,
+                        );
+                      },
+                    ),
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+/*  @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
@@ -319,5 +499,5 @@ class _OnBoardState extends State<OnBoard> {
         ),
       ),
     );
-  }
+  }*/
 }
