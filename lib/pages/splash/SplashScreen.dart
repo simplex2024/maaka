@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maaakanmoney/components/constants.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
-import 'package:maaakanmoney/pages/Onboard/onboardScreen.dart';
+import 'package:maaakanmoney/features/onBoarding_Screen/presentation/screens/onboardScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../flutter_flow/flutter_flow_theme.dart';

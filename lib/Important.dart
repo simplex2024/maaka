@@ -76,6 +76,6 @@
 // 1. code collobaration started on 16.6.25
 
 //Jun 16,2025
-//Environment setup
-//push1
-//push2
+///remarks
+///1. new directories added
+///2. onboarding screen moved to clean architecture

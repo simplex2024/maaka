@@ -21,7 +21,7 @@ class Constants {
   static String adminId = "0805080508";
   static String adminNo1 = "+919360840071";
   static String adminNo2 = "+919941445471";
-  static String appVersion = "1.2.55";
+  static String appVersion = "1.2.56";
   static String admin1Gpay = "9360840071";
   static String admin2Gpay = "9941445471";
   static String accessTokenFrNotificn = "";
