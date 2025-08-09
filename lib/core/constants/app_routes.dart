@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/login_screen.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/onboarding_screen.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/otp_screen.dart';
-import 'package:maaakanmoney/features/auth/presentation/screens/spalsh_screen.dart';
+import 'package:maaakanmoney/features/splash_screen/presentation/screens/spalsh_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
 import 'package:maaakanmoney/features/onBoarding_Screen/presentation/screens/onboardScreen.dart';
