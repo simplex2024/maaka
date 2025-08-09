@@ -208,7 +208,7 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
       print('Error retrieving data: $e');
     }
   }
-
+//2.0 build method
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -319,6 +319,8 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
     );
   }
 
+
+  // 1.0 build method
 /*  @override
   Widget build(BuildContext context) {
     return UpgradeAlert(

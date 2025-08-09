@@ -8,4 +8,7 @@ class AppColors {
   static const subTitleGreyColor = Color.fromRGBO(0, 0, 0, 0.28);
   static const greySixColor = Color.fromRGBO(0, 0, 0, 0.6);
   static const greenColor = Color.fromRGBO(38, 173, 114, 1);
+  static const greyColor = Color(0xFFF2F2F2);
+  static const greyDarkColor = Color(0xFFE4E4E4);
+
 }

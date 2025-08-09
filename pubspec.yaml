@@ -146,6 +146,7 @@ flutter:
     - images/final/Admin/Dashboard/
     - assets/
     - assets/images/
+#    - assets/images/order_creation_screen
 #    - images/Icons/DocumentUpload/PhotoSection/
 #    - images/Icons/DocumentUpload/FormSection/
 
