@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maaakanmoney/core/constants/app_routes.dart';
 import 'package:maaakanmoney/pages/Auth/mpin.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
+import 'package:maaakanmoney/features/onBoarding_Screen/presentation/screens/onboardScreen.dart';
 import 'package:maaakanmoney/phoneController.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -53,6 +54,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
       if ((isviewed == 0) || (isviewed == null)) {
         Navigator.pushReplacementNamed(context, AppRoutes.onboardingScreen);
+        // Navigator.pushAndRemoveUntil(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => const OnBoard()),
+        //       (Route<dynamic> route) => false,
+        // );
       } else {
         if (loginKey == null || loginKey == "" || loginKey!.isEmpty) {
           // Navigator.pushReplacement(

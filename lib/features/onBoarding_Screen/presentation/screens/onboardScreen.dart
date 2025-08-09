@@ -8,10 +8,13 @@ import 'package:maaakanmoney/core/constants/app_routes.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/onboarding_screen.dart';
 import 'package:maaakanmoney/flutter_flow/flutter_flow_theme.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
-import 'package:maaakanmoney/pages/Onboard/onboard_model.dart';
+import 'package:maaakanmoney/features/onBoarding_Screen/domain/entities/onboard_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../Auth/mpin.dart';
+import '../../../../pages/Auth/mpin.dart';
+
+//todo:-Remarks
+///1. should move same screen into clean architecture module
 
 class OnBoard extends StatefulWidget {
   const OnBoard({Key? key}) : super(key: key);
@@ -273,7 +276,7 @@ class _OnBoardState extends State<OnBoard> {
       ),
     );
   }
-
+///existing 1.0 build
 /*  @override
   Widget build(BuildContext context) {
     double baseWidth = 360;

@@ -5,7 +5,7 @@ import 'package:maaakanmoney/features/auth/presentation/screens/otp_screen.dart'
 import 'package:maaakanmoney/features/auth/presentation/screens/spalsh_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
-import 'package:maaakanmoney/pages/Onboard/onboardScreen.dart';
+import 'package:maaakanmoney/features/onBoarding_Screen/presentation/screens/onboardScreen.dart';
 
 class AppRoutes {
   static const String splashScreen = '/splashScreen';
