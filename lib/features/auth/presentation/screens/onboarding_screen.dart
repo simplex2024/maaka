@@ -2,18 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:maaakanmoney/core/common_widgets/common_button.dart';
 import 'package:maaakanmoney/core/constants/app_colors.dart';
 import 'package:maaakanmoney/core/constants/app_routes.dart';
+import 'package:maaakanmoney/features/onBoarding_Screen/domain/entities/onboard_model.dart';
 
-class OnboardingContent {
-  final String image;
-  final String title;
-  final String description;
 
-  OnboardingContent({
-    required this.image,
-    required this.title,
-    required this.description,
-  });
-}
 
 final List<OnboardingContent> onboardingPages = [
   OnboardingContent(
