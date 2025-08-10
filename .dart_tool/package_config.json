@@ -734,6 +734,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "persistent_bottom_nav_bar",
+      "rootUri": "file:///C:/Users/gbama/AppData/Local/Pub/Cache/hosted/pub.dev/persistent_bottom_nav_bar-6.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "petitparser",
       "rootUri": "file:///C:/Users/gbama/AppData/Local/Pub/Cache/hosted/pub.dev/petitparser-6.0.2",
       "packageUri": "lib/",
@@ -1136,7 +1142,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-08-09T06:01:57.844877Z",
+  "generated": "2025-08-10T07:59:53.150450Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///C:/Development/flutter",

@@ -87,6 +87,7 @@ dependencies:
 #  flutter_screenutil: ^5.9.3
   flutter_bloc: ^9.1.1
   sizer: ^3.0.5
+  persistent_bottom_nav_bar: ^6.2.1
 
 
 
