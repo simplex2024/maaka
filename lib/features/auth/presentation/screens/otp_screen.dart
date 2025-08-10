@@ -118,6 +118,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     child: CommonButton(
                       onPressed: () {
                         Navigator.pushNamed(context, AppRoutes.dashboardScreen);
+                        // Navigator.pushNamed(context, AppRoutes.orderCreationScreen);
                       },
                       buttonText: Constant.verifyAndContinue,
                     )),
