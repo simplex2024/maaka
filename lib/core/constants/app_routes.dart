@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/login_screen.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/onboarding_screen.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/otp_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/cart_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/order_by_voice_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/order_creation_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/order_preview_screen.dart';
@@ -21,6 +22,7 @@ class AppRoutes {
   static const String orderByVoiceScreen = '/orderByVoiceScreen';
   static const String previewOrderScreen = '/previewOrderScreen';
   static const String orderStatusScreen = '/orderStatusScreen';
+  static const String cartScreen = '/cartScreen';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -50,6 +52,8 @@ class AppRoutes {
       //   return MaterialPageRoute(builder: (_) => PreviewOrderScreen(items: items));
       case orderStatusScreen:
         return MaterialPageRoute(builder: (_) => OrderStatusScreen());
+      case cartScreen:
+        return MaterialPageRoute(builder: (_) => CartScreen());
       default:
         return null;
     }

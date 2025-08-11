@@ -99,8 +99,13 @@ class _GroceryScreenState extends State<GroceryScreen> {
                           shape: BoxShape.circle,
                           color: AppColors.greenColor,
                         ),
-                        child: Image.asset(
-                          "assets/images/cart_icon.png",
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.of(context, rootNavigator: true).pushNamed( AppRoutes.cartScreen);
+                          },
+                          child: Image.asset(
+                            "assets/images/cart_icon.png",
+                          ),
                         ),
                       ),
                       SizedBox(width: 10),
