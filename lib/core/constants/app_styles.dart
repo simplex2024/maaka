@@ -32,4 +32,12 @@ class AppStyles {
       fontWeight: FontWeight.w500,
       color: AppColors.primaryBlackTextColor);
 
+  // TextStyle labelTextStyle({Color? color}) {
+  //   return TextStyle(
+  //     fontSize: 14.sp,
+  //     fontWeight: FontWeight.w500,
+  //     color: color ?? AppColors.primaryBlackTextColor, // fallback
+  //   );
+  // }
+
 }

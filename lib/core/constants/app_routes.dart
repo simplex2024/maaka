@@ -4,6 +4,8 @@ import 'package:maaakanmoney/features/auth/presentation/screens/onboarding_scree
 import 'package:maaakanmoney/features/auth/presentation/screens/otp_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/order_by_voice_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/order_creation_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/order_preview_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/order_status_screen.dart';
 import 'package:maaakanmoney/features/splash_screen/presentation/screens/spalsh_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
@@ -17,6 +19,8 @@ class AppRoutes {
   static const String dashboardScreen = '/dashboardScreen';
   static const String orderCreationScreen = '/orderCreationScreen';
   static const String orderByVoiceScreen = '/orderByVoiceScreen';
+  static const String previewOrderScreen = '/previewOrderScreen';
+  static const String orderStatusScreen = '/orderStatusScreen';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -42,6 +46,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => OrderCreationScreen());
       case orderByVoiceScreen:
         return MaterialPageRoute(builder: (_) => OrderByVoiceScreen());
+      // case previewOrderScreen:
+      //   return MaterialPageRoute(builder: (_) => PreviewOrderScreen(items: items));
+      case orderStatusScreen:
+        return MaterialPageRoute(builder: (_) => OrderStatusScreen());
       default:
         return null;
     }

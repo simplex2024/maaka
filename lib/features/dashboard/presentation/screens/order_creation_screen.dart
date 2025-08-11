@@ -71,26 +71,7 @@ class _OrderCreationScreenState extends State<OrderCreationScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Back button
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child:
 
-                  Container(
-                    width: 48,
-                    height: 48,
-                    decoration: const BoxDecoration(
-                      color: AppColors.greyDarkColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child:   IconButton(
-                      icon: const Icon(Icons.arrow_back),
-                      onPressed: () => Navigator.pop(context),
-                    ),//Icon(icon, color: Colors.white),
-                  ),
-
-
-                ),
                 const SizedBox(height: 16),
                 // Store Card
                 Container(
@@ -301,6 +282,34 @@ class _OrderCreationScreenState extends State<OrderCreationScreen> {
             ),
           ),
         ),
+      appBar: AppBar(
+        backgroundColor: AppColors.primaryWhiteTextColor,
+        elevation: 1,
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+        title: Row(
+          children: [
+            const SizedBox(width: 8),
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: AppColors.greyDarkColor,
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back, size: 20),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Text(
+              "Type Your Grocery List",
+              style: AppStyles.subTitleTextStyle,
+            ),
+          ],
+        ),
+      ),
       );
   }
 

@@ -17,22 +17,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
       buildScreens: [
         GroceryScreen(),
         Scaffold(
-            backgroundColor: AppColors.greyDotColor,
+            backgroundColor: AppColors.greyColor,
             body: Center(
               child: Text("Meat Screen"),
             )),
         Scaffold(
-            backgroundColor: AppColors.greyDotColor,
+            backgroundColor: AppColors.greyColor,
             body: Center(
               child: Text("E-Shopping Screen"),
             )),
         Scaffold(
-            backgroundColor: AppColors.greyDotColor,
+            backgroundColor: AppColors.greyColor,
             body: Center(
               child: Text("Piggy Bank Screen"),
             )),
         Scaffold(
-            backgroundColor: AppColors.greyDotColor,
+            backgroundColor: AppColors.greyColor,
             body: Center(
               child: Text("About Screen"),
             )),

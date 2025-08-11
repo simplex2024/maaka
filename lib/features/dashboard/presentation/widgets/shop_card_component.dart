@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:maaakanmoney/core/constants/app_colors.dart';
+import 'package:maaakanmoney/core/constants/app_routes.dart';
 
 class ShopCardComponent extends StatelessWidget {
   final String name;
@@ -19,40 +21,50 @@ class ShopCardComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Container(
-        padding: EdgeInsets.all(5.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-              child: Image.asset(imageUrl,
-                  height: 100, width: double.infinity, fit: BoxFit.cover),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
-            SizedBox(height: 4),
-            Text(distance, style: TextStyle(color: Colors.grey, fontSize: 12)),
-            Row(
-              children: [
-                Icon(Icons.star, color: Colors.yellow, size: 16),
-                Text(rating, style: TextStyle(fontSize: 12)),
-              ],
-            ),
-            Row(
-              children: [
-                CircleAvatar(
-                    radius: 12,
-                    backgroundColor: Colors.grey[300],
-                    child: Icon(Icons.person, size: 14)),
-                SizedBox(width: 6),
-                Text(owner, style: TextStyle(fontSize: 12)),
-              ],
-            ),
-            SizedBox(height: 6),
-          ],
+      child: InkWell(
+        onTap: (){
+          Navigator.of(context, rootNavigator: true).pushNamed(AppRoutes.orderCreationScreen);
+        },
+        child: Container(
+
+          decoration: const BoxDecoration(
+            // color: AppColors.greyDarkColor,
+            shape: BoxShape.circle,
+          ),
+          padding: EdgeInsets.all(5.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                child: Image.asset(imageUrl,
+                    height: 100, width: double.infinity, fit: BoxFit.cover),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
+              SizedBox(height: 4),
+              Text(distance, style: TextStyle(color: Colors.grey, fontSize: 12)),
+              Row(
+                children: [
+                  Icon(Icons.star, color: Colors.yellow, size: 16),
+                  Text(rating, style: TextStyle(fontSize: 12)),
+                ],
+              ),
+              Row(
+                children: [
+                  CircleAvatar(
+                      radius: 12,
+                      backgroundColor: Colors.grey[300],
+                      child: Icon(Icons.person, size: 14)),
+                  SizedBox(width: 6),
+                  Text(owner, style: TextStyle(fontSize: 12)),
+                ],
+              ),
+              SizedBox(height: 6),
+            ],
+          ),
         ),
       ),
     );
