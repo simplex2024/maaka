@@ -8,6 +8,16 @@ class AppStyles {
       fontWeight: FontWeight.w600,
       color: AppColors.primaryBlackTextColor);
 
+  static final subTitleTextStyle = TextStyle(
+      fontSize: 17.sp,
+      fontWeight: FontWeight.w500,
+      color: AppColors.primaryBlackTextColor);
+
+  static final mediumTitleTextStyle = TextStyle(
+      fontSize: 15.sp,
+      fontWeight: FontWeight.w500,
+      color: AppColors.primaryBlackTextColor);
+
   static final descriptionTextStyle = TextStyle(
       fontSize: 15.sp,
       fontWeight: FontWeight.w400,
