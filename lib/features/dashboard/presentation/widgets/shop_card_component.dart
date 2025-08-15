@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:maaakanmoney/core/constants/app_colors.dart';
+import 'package:sizer/sizer.dart';
 
 class ShopCardComponent extends StatelessWidget {
   final String name;
@@ -20,27 +22,37 @@ class ShopCardComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        padding: EdgeInsets.all(5.0),
+        padding: EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+              borderRadius: BorderRadius.all(Radius.circular(12)),
               child: Image.asset(imageUrl,
                   height: 100, width: double.infinity, fit: BoxFit.cover),
             ),
             SizedBox(
               height: 10.0,
             ),
-            Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
-            SizedBox(height: 4),
-            Text(distance, style: TextStyle(color: Colors.grey, fontSize: 12)),
+            Text(name,
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.sp)),
+            SizedBox(height: 5),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(Icons.star, color: Colors.yellow, size: 16),
-                Text(rating, style: TextStyle(fontSize: 12)),
+                Text(distance,
+                    style:
+                        TextStyle(color: AppColors.greenColor, fontSize: 12)),
+                Row(
+                  children: [
+                    Text(rating, style: TextStyle(fontSize: 12)),
+                    SizedBox(width: 2,),
+                    Icon(Icons.star, color: Colors.yellow, size: 16),
+                  ],
+                ),
               ],
             ),
+            SizedBox(height: 10),
             Row(
               children: [
                 CircleAvatar(
@@ -51,60 +63,24 @@ class ShopCardComponent extends StatelessWidget {
                 Text(owner, style: TextStyle(fontSize: 12)),
               ],
             ),
-            SizedBox(height: 6),
+            SizedBox(height: 7),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.greyDotColor,
+                    foregroundColor: AppColors.primaryBlackTextColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(10), // Rounded corners
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text("View More")),
+            ),
           ],
         ),
       ),
     );
-    /*  return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [BoxShadow(color: Colors.grey.shade200, blurRadius: 4)],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-            child: Image.asset(imageUrl, height: 100, width: double.infinity, fit: BoxFit.cover),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(height: 4),
-                Text(distance, style: TextStyle(color: Colors.grey, fontSize: 12)),
-                Row(
-                  children: [
-                    Icon(Icons.star, color: Colors.yellow, size: 16),
-                    Text(rating, style: TextStyle(fontSize: 12)),
-                  ],
-                ),
-                Row(
-                  children: [
-                    CircleAvatar(radius: 12, backgroundColor: Colors.grey[300], child: Icon(Icons.person, size: 14)),
-                    SizedBox(width: 6),
-                    Text(owner, style: TextStyle(fontSize: 12)),
-                  ],
-                ),
-                SizedBox(height: 6),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    minimumSize: Size(double.infinity, 32),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                  ),
-                  child: Text("View More", style: TextStyle(fontSize: 12)),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );*/
   }
 }

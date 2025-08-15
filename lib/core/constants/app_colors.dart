@@ -13,5 +13,5 @@ class AppColors {
   static const piggyBankColor = Color.fromRGBO(253, 224, 138, 1);
   static const greyColor = Color(0xFFF2F2F2);
   static const greyDarkColor = Color(0xFFE4E4E4);
-
+  static const viewMoreButtonColor = Color.fromRGBO(240, 240, 240, 1);
 }

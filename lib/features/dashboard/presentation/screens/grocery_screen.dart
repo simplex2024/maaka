@@ -11,6 +11,7 @@ class GroceryScreen extends StatefulWidget {
 }
 
 class _GroceryScreenState extends State<GroceryScreen> {
+  bool isSelected = true;
   final List<Map<String, String>> shops = [
     {
       'name': 'Karthi Grocercys',
@@ -40,6 +41,22 @@ class _GroceryScreenState extends State<GroceryScreen> {
       'owner': 'Praveen',
       'image': 'assets/images/shop_img.png'
     }
+  ];
+  final List<Map<String, String>> ratings = [
+    {
+      'name': 'Karthi Grocercys',
+      'distance': '50 m',
+      'rating': '4/5',
+      'owner': 'Rajesh Kumar',
+      'image': 'assets/images/shop_img.png'
+    },
+    {
+      'name': 'Naveen Department',
+      'distance': '100 m',
+      'rating': '4/5',
+      'owner': 'Ram Kumar',
+      'image': 'assets/images/shop_img.png'
+    },
   ];
 
   @override
@@ -95,8 +112,27 @@ class _GroceryScreenState extends State<GroceryScreen> {
                           shape: BoxShape.circle,
                           color: AppColors.greenColor,
                         ),
-                        child: Image.asset(
-                          "assets/images/cart_icon.png",
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/images/cart_icon.png",
+                            ),
+                            Positioned(
+                              top: 2,
+                              right: 7,
+                              child: Container(
+                                padding: EdgeInsets.all(3),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.primaryWhiteTextColor),
+                                child: Text(
+                                  "4",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
                       SizedBox(width: 10),
@@ -146,7 +182,19 @@ class _GroceryScreenState extends State<GroceryScreen> {
                 child: TextFormField(
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search, color: Colors.white),
-                      suffixIcon: Icon(Icons.mic, color: Colors.white),
+                      suffixIcon: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            height: 25,
+                            width: 1,
+                            color: Colors.white, // divider
+                          ),
+                          const SizedBox(width: 8),
+                          const Icon(Icons.mic, color: Colors.white),
+                          const SizedBox(width: 8),
+                        ],
+                      ),
                       hintText: "Search Shop",
                       hintStyle: TextStyle(
                           fontSize: 16.sp,
@@ -164,44 +212,102 @@ class _GroceryScreenState extends State<GroceryScreen> {
               SizedBox(height: 15),
               Row(
                 children: [
-                  FilterChip(
-                    label: Text("Distance"),
-                    onSelected: (_) {},
-                    selected: true,
-                    selectedColor: AppColors.greenColor,
-                  ),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: isSelected
+                            ? AppColors.greenColor
+                            : AppColors.greyDotColor,
+                        foregroundColor: isSelected
+                            ? AppColors.primaryWhiteTextColor
+                            : AppColors.greenColor,
+                        side: BorderSide(
+                          color: AppColors.greenColor,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(30), // Rounded corners
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          isSelected = true;
+                        });
+                      },
+                      child: Text("Distance")),
                   SizedBox(width: 10),
-                  FilterChip(label: Text("Rating"), onSelected: (_) {}),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: !isSelected
+                            ? AppColors.greenColor
+                            : AppColors.greyDotColor,
+                        foregroundColor: !isSelected
+                            ? AppColors.primaryWhiteTextColor
+                            : AppColors.greenColor,
+                        side: BorderSide(
+                          color: AppColors.greenColor,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(30), // Rounded corners
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          isSelected = false;
+                        });
+                      },
+                      child: Text("Rating")),
                 ],
               ),
               SizedBox(height: 20),
-              // Shops Grid
-              Expanded(
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 0.8,
-                  ),
-                  itemCount: shops.length,
-                  itemBuilder: (context, index) {
-                    final shop = shops[index];
-                    return ShopCardComponent(
-                      name: shop['name']!,
-                      distance: shop['distance']!,
-                      rating: shop['rating']!,
-                      owner: shop['owner']!,
-                      imageUrl: shop['image']!,
-                    );
-                  },
-                ),
-              ),
+              isSelected
+                  ? Expanded(
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 3,
+                          crossAxisSpacing: 3,
+                          childAspectRatio: 0.65,
+                        ),
+                        itemCount: shops.length,
+                        itemBuilder: (context, index) {
+                          final shop = shops[index];
+                          return ShopCardComponent(
+                            name: shop['name']!,
+                            distance: shop['distance']!,
+                            rating: shop['rating']!,
+                            owner: shop['owner']!,
+                            imageUrl: shop['image']!,
+                          );
+                        },
+                      ),
+                    )
+                  : Expanded(
+                      child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 3,
+                          crossAxisSpacing: 3,
+                          childAspectRatio: 0.65,
+                        ),
+                        itemCount: ratings.length,
+                        itemBuilder: (context, index) {
+                          final shop = ratings[index];
+                          return ShopCardComponent(
+                            name: shop['name']!,
+                            distance: shop['distance']!,
+                            rating: shop['rating']!,
+                            owner: shop['owner']!,
+                            imageUrl: shop['image']!,
+                          );
+                        },
+                      ),
+                    ),
             ],
           ),
         ),
       ),
-
     );
   }
 }
