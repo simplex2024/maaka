@@ -70,7 +70,7 @@ class _OrderByVoiceScreenState extends State<OrderByVoiceScreen> {
       height: 45,
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        color: AppColors.greyColor,
+        color: AppColors.screenBackgroundColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(
@@ -88,7 +88,7 @@ class _OrderByVoiceScreenState extends State<OrderByVoiceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true, // ✅ fix keyboard push issue
-      backgroundColor:  AppColors.greyColor,
+      backgroundColor:  AppColors.screenBackgroundColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -201,8 +201,8 @@ class _OrderByVoiceScreenState extends State<OrderByVoiceScreen> {
                           : null,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: _hasAnyRowFilled
-                            ? AppColors.greenColor
-                            : AppColors.greyColor,
+                            ? AppColors.groceryColor
+                            : AppColors.screenBackgroundColor,
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
@@ -232,8 +232,8 @@ class _OrderByVoiceScreenState extends State<OrderByVoiceScreen> {
                           : null,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: _hasAnyRowFilled
-                            ? AppColors.greenColor
-                            : AppColors.greyColor,
+                            ? AppColors.groceryColor
+                            : AppColors.screenBackgroundColor,
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),

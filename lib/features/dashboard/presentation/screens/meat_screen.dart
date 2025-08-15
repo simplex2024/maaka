@@ -1,63 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maaakanmoney/core/constants/app_colors.dart';
 import 'package:maaakanmoney/core/constants/app_routes.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/widgets/meat_card_component.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/widgets/shop_card_component.dart';
 import 'package:sizer/sizer.dart';
 
-class GroceryScreen extends StatefulWidget {
-  const GroceryScreen({super.key});
+class MeatScreen extends ConsumerStatefulWidget {
+  const MeatScreen({super.key});
 
   @override
-  State<GroceryScreen> createState() => _GroceryScreenState();
+  ConsumerState<MeatScreen> createState() => _MeatScreenState();
 }
 
-class _GroceryScreenState extends State<GroceryScreen> {
+class _MeatScreenState extends ConsumerState<MeatScreen> {
   bool isSelected = true;
-  final List<Map<String, String>> shops = [
+  final List<Map<String, String>> chickenMeats = [
     {
-      'name': 'Karthi Grocercys',
-      'distance': '50 m',
-      'rating': '4/5',
-      'owner': 'Rajesh Kumar',
-      'image': 'assets/images/shop_img.png'
+      'meatName': 'Ordinary Chicken',
+      'image': 'assets/images/ordinary_chicken.png'
     },
+    {'meatName': 'Chicken Boanless', 'image': 'assets/images/chicken_boneless.png'},
     {
-      'name': 'Naveen Department',
-      'distance': '100 m',
-      'rating': '4/5',
-      'owner': 'Ram Kumar',
-      'image': 'assets/images/shop_img.png'
+      'meatName': 'Chicken leg piece',
+      'image': 'assets/images/chicken_leg_piece.png'
     },
-    {
-      'name': 'Nithiya Maligai',
-      'distance': '150 m',
-      'rating': '4/5',
-      'owner': 'Anitha',
-      'image': 'assets/images/shop_img.png'
-    },
-    {
-      'name': 'Praveen Shop',
-      'distance': '200 m',
-      'rating': '4/5',
-      'owner': 'Praveen',
-      'image': 'assets/images/shop_img.png'
-    }
   ];
-  final List<Map<String, String>> ratings = [
+  final List<Map<String, String>> muttonMeats = [
     {
-      'name': 'Karthi Grocercys',
-      'distance': '50 m',
-      'rating': '4/5',
-      'owner': 'Rajesh Kumar',
-      'image': 'assets/images/shop_img.png'
+      'meatName': 'Ordinary Mutton',
+      'image': 'assets/images/ordinary_mutton.png'
     },
-    {
-      'name': 'Naveen Department',
-      'distance': '100 m',
-      'rating': '4/5',
-      'owner': 'Ram Kumar',
-      'image': 'assets/images/shop_img.png'
-    },
+    {'meatName': 'Mutton Liver', 'image': 'assets/images/mutton_liver.png'},
   ];
 
   @override
@@ -85,11 +59,11 @@ class _GroceryScreenState extends State<GroceryScreen> {
                               color: Colors.black),
                           children: [
                         TextSpan(
-                          text: " grocery",
+                          text: " Meat",
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w600,
-                              color: Color.fromRGBO(38, 173, 113, 1)),
+                              color: AppColors.meatColor),
                         )
                       ])),
                   Row(
@@ -101,25 +75,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                           height: 44,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Color.fromRGBO(212, 212, 212, 1),
-                          ),
-                          child: Image.asset(
-                            "assets/images/notification_icon.png",
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context, rootNavigator: true)
-                              .pushNamed(AppRoutes.cartScreen);
-                        },
-                        child: Container(
-                          width: 44,
-                          height: 44,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.groceryColor,
+                            color: AppColors.meatColor,
                           ),
                           child: Stack(
                             alignment: Alignment.center,
@@ -152,7 +108,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                         height: 44,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.groceryColor,
+                          color: AppColors.meatColor,
                         ),
                         child: Image.asset(
                           "assets/images/call_icon.png",
@@ -170,7 +126,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                 children: [
                   Icon(
                     Icons.location_on,
-                    color: AppColors.groceryColor,
+                    color: AppColors.primaryBlackTextColor,
                   ),
                   SizedBox(
                     width: 10.0,
@@ -187,7 +143,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.groceryColor,
+                  color: AppColors.meatColor,
                   borderRadius: BorderRadius.circular(23),
                 ),
                 child: TextFormField(
@@ -217,7 +173,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
               ),
               SizedBox(height: 15),
               Text(
-                "Grocery's shops near by you",
+                "Meats List's",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 15),
@@ -226,13 +182,13 @@ class _GroceryScreenState extends State<GroceryScreen> {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: isSelected
-                            ? AppColors.groceryColor
+                            ? AppColors.meatColor
                             : AppColors.screenBackgroundColor,
                         foregroundColor: isSelected
                             ? AppColors.primaryWhiteTextColor
-                            : AppColors.groceryColor,
+                            : AppColors.meatColor,
                         side: BorderSide(
-                          color: AppColors.groceryColor,
+                          color: AppColors.meatColor,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius:
@@ -244,18 +200,18 @@ class _GroceryScreenState extends State<GroceryScreen> {
                           isSelected = true;
                         });
                       },
-                      child: Text("Distance")),
+                      child: Text("Chicken")),
                   SizedBox(width: 10),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: !isSelected
-                            ? AppColors.groceryColor
+                            ? AppColors.meatColor
                             : AppColors.screenBackgroundColor,
                         foregroundColor: !isSelected
                             ? AppColors.primaryWhiteTextColor
-                            : AppColors.groceryColor,
+                            : AppColors.meatColor,
                         side: BorderSide(
-                          color: AppColors.groceryColor,
+                          color: AppColors.meatColor,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius:
@@ -267,7 +223,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                           isSelected = false;
                         });
                       },
-                      child: Text("Rating")),
+                      child: Text("Mutton")),
                 ],
               ),
               SizedBox(height: 20),
@@ -279,17 +235,14 @@ class _GroceryScreenState extends State<GroceryScreen> {
                           crossAxisCount: 2,
                           mainAxisSpacing: 3,
                           crossAxisSpacing: 3,
-                          childAspectRatio: 0.65,
+                          childAspectRatio: 0.9,
                         ),
-                        itemCount: shops.length,
+                        itemCount: chickenMeats.length,
                         itemBuilder: (context, index) {
-                          final shop = shops[index];
-                          return ShopCardComponent(
-                            name: shop['name']!,
-                            distance: shop['distance']!,
-                            rating: shop['rating']!,
-                            owner: shop['owner']!,
-                            imageUrl: shop['image']!,
+                          final chickenMeat = chickenMeats[index];
+                          return MeatCardComponent(
+                            meatName: chickenMeat['meatName']!,
+                            imageUrl: chickenMeat['image']!,
                           );
                         },
                       ),
@@ -300,17 +253,14 @@ class _GroceryScreenState extends State<GroceryScreen> {
                           crossAxisCount: 2,
                           mainAxisSpacing: 3,
                           crossAxisSpacing: 3,
-                          childAspectRatio: 0.65,
+                          childAspectRatio: 0.9,
                         ),
-                        itemCount: ratings.length,
+                        itemCount: muttonMeats.length,
                         itemBuilder: (context, index) {
-                          final shop = ratings[index];
-                          return ShopCardComponent(
-                            name: shop['name']!,
-                            distance: shop['distance']!,
-                            rating: shop['rating']!,
-                            owner: shop['owner']!,
-                            imageUrl: shop['image']!,
+                          final muttonMeat = muttonMeats[index];
+                          return MeatCardComponent(
+                            meatName: muttonMeat['meatName']!,
+                            imageUrl: muttonMeat['image']!,
                           );
                         },
                       ),

@@ -187,7 +187,7 @@ class _CartScreenState extends State<CartScreen> {
                                 padding: const EdgeInsets.all(4),
                                 // Padding inside circle
                                 decoration: BoxDecoration(
-                                  color: AppColors.greenColor,
+                                  color: AppColors.groceryColor,
                                   shape: BoxShape.circle,
                                   border: Border.all(
                                       color: Colors.green,
@@ -328,7 +328,7 @@ class _CartScreenState extends State<CartScreen> {
                               const SizedBox(width: 10),
                               IconButton(
                                 icon: const Icon(Icons.edit,
-                                    color: AppColors.greenColor),
+                                    color: AppColors.groceryColor),
                                 onPressed: () => _pickScheduleTime(i),
                                 tooltip: "Edit Schedule Time",
                               ),
@@ -347,7 +347,7 @@ class _CartScreenState extends State<CartScreen> {
                   Navigator.pushNamed(context, AppRoutes.orderStatusScreen);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.greenColor,
+                  backgroundColor: AppColors.groceryColor,
                   minimumSize: const Size.fromHeight(50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),

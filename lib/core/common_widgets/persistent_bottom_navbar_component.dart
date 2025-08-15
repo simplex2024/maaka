@@ -30,7 +30,7 @@ class _PersistentBottomBarComponentState
           ),
           title: ("Grocery"),
           textStyle: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
-          activeColorPrimary: AppColors.greenColor,
+          activeColorPrimary: AppColors.groceryColor,
           inactiveColorPrimary: Colors.white,
           activeColorSecondary: AppColors.primaryWhiteTextColor),
       PersistentBottomNavBarItem(
@@ -105,7 +105,7 @@ class _PersistentBottomBarComponentState
       isVisible: true,
       decoration: NavBarDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          colorBehindNavBar: AppColors.greyColor),
+          colorBehindNavBar: AppColors.screenBackgroundColor),
      /* animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
           duration: Duration(milliseconds: 400),

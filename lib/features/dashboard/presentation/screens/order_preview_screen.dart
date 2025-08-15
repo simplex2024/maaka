@@ -32,7 +32,7 @@ class _PreviewOrderScreenState extends State<PreviewOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.greyColor,
+      backgroundColor: AppColors.screenBackgroundColor,
       appBar: AppBar(
         backgroundColor: AppColors.primaryWhiteTextColor,
         elevation: 1,
@@ -121,7 +121,7 @@ class _PreviewOrderScreenState extends State<PreviewOrderScreen> {
                                       height: 45,
                                       alignment: Alignment.centerLeft,
                                       decoration: BoxDecoration(
-                                        color: AppColors.greyColor,
+                                        color: AppColors.screenBackgroundColor,
                                         borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Text(item['name'] ?? ''),
@@ -136,7 +136,7 @@ class _PreviewOrderScreenState extends State<PreviewOrderScreen> {
                                       height: 45,
                                       alignment: Alignment.centerLeft,
                                       decoration: BoxDecoration(
-                                        color: AppColors.greyColor,
+                                        color: AppColors.screenBackgroundColor,
                                         borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Text(item['quantity'] ?? ''),
@@ -178,8 +178,8 @@ class _PreviewOrderScreenState extends State<PreviewOrderScreen> {
                             : null,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: _hasItems
-                              ? AppColors.greenColor
-                              : AppColors.greyColor,
+                              ? AppColors.groceryColor
+                              : AppColors.screenBackgroundColor,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -199,8 +199,8 @@ class _PreviewOrderScreenState extends State<PreviewOrderScreen> {
                             : null,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: _hasItems
-                              ? AppColors.greenColor
-                              : AppColors.greyColor,
+                              ? AppColors.groceryColor
+                              : AppColors.screenBackgroundColor,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),

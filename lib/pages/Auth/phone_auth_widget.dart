@@ -209,7 +209,7 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
     }
   }
 //2.0 build method
-  /*Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold( 
       body: SingleChildScrollView(
         child: SafeArea(
@@ -318,10 +318,9 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
       ),
     );
   }
-*/
 
   // 1.0 build method
-  @override
+/*  @override
   Widget build(BuildContext context) {
     return UpgradeAlert(
       // canDismissDialog: false, // This forces the update by disallowing dialog dismissal
@@ -1290,7 +1289,7 @@ class _MyPhoneState extends ConsumerState<MyPhone> {
         // showLater: false,  // Hide the "Later" button
       ),
     );
-  }
+  }*/
 
   Widget buildLinkItem(
       BuildContext context, String name, String imagePath, String? url) {

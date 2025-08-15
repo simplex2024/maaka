@@ -44,11 +44,13 @@ class ShopCardComponent extends StatelessWidget {
               children: [
                 Text(distance,
                     style:
-                        TextStyle(color: AppColors.greenColor, fontSize: 12)),
+                        TextStyle(color: AppColors.groceryColor, fontSize: 12)),
                 Row(
                   children: [
                     Text(rating, style: TextStyle(fontSize: 12)),
-                    SizedBox(width: 2,),
+                    SizedBox(
+                      width: 2,
+                    ),
                     Icon(Icons.star, color: Colors.yellow, size: 16),
                   ],
                 ),
@@ -77,7 +79,10 @@ class ShopCardComponent extends StatelessWidget {
                           BorderRadius.circular(10), // Rounded corners
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context, rootNavigator: true)
+                        .pushNamed(AppRoutes.orderCreationScreen);
+                  },
                   child: Text("View More")),
             ),
           ],

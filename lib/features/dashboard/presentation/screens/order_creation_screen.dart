@@ -53,7 +53,7 @@ class _OrderCreationScreenState extends State<OrderCreationScreen> {
         width: 48,
         height: 48,
         decoration: const BoxDecoration(
-          color: AppColors.greenColor,
+          color: AppColors.groceryColor,
           shape: BoxShape.circle,
         ),
         child: Image.asset(imagePath ?? ""),//Icon(icon, color: Colors.white),
@@ -64,7 +64,7 @@ class _OrderCreationScreenState extends State<OrderCreationScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        backgroundColor: AppColors.greyColor,
+        backgroundColor: AppColors.screenBackgroundColor,
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(

@@ -14,7 +14,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.greyColor,
+      backgroundColor: AppColors.screenBackgroundColor,
       appBar: AppBar(
         backgroundColor: AppColors.primaryWhiteTextColor,
         elevation: 1,
@@ -52,7 +52,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
                 ),
                 child: Icon(
                   Icons.done,
-                  color: AppColors.greenColor,
+                  color: AppColors.groceryColor,
                   size: 18,
                 ),
               ),
@@ -106,7 +106,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
 
             margin: const EdgeInsets.symmetric(horizontal: 10),
             padding: const EdgeInsets.all(0),
-            color: AppColors.greyColor,
+            color: AppColors.screenBackgroundColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -142,7 +142,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
                           height: 5.h,
                           width: 25.w,
                           decoration: BoxDecoration(
-                            color: AppColors.greenColor,
+                            color: AppColors.groceryColor,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child:  Center(
@@ -174,7 +174,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
               children: [
                 Row(
                   children: const [
-                    Icon(Icons.location_on, color: AppColors.greenColor, size: 20),
+                    Icon(Icons.location_on, color: AppColors.groceryColor, size: 20),
                     SizedBox(width: 8),
                     Text("Karthi Grocerys",
                         style: TextStyle(
@@ -187,7 +187,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
                 const SizedBox(height: 8),
                 Row(
                   children: const [
-                    Icon(Icons.shopping_bag, color: AppColors.greenColor, size: 20),
+                    Icon(Icons.shopping_bag, color: AppColors.groceryColor, size: 20),
                     SizedBox(width: 8),
                     Text("7 items", style: TextStyle(fontSize: 15)),
                     Spacer(),
@@ -204,7 +204,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
                     ),
                     const Text(
                       "  6–10 minutes",
-                      style: TextStyle(fontSize: 13, color: AppColors.greenColor),
+                      style: TextStyle(fontSize: 13, color: AppColors.groceryColor),
                     ),
                   ],
                 ),
@@ -250,7 +250,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
         shape: BoxShape.circle,
         gradient: active
             ? const LinearGradient(
-                colors: [AppColors.greenColor, AppColors.greyDarkColor],
+                colors: [AppColors.groceryColor, AppColors.greyDarkColor],
                 // Green shades
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -283,7 +283,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
         decoration: BoxDecoration(
           gradient: active
               ? const LinearGradient(
-                  colors: [AppColors.greyDarkColor, AppColors.greyColor],
+                  colors: [AppColors.greyDarkColor, AppColors.screenBackgroundColor],
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                 )
