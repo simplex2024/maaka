@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maaakanmoney/core/constants/app_colors.dart';
+import 'package:maaakanmoney/core/constants/app_routes.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/widgets/shop_card_component.dart';
 import 'package:sizer/sizer.dart';
 
@@ -62,7 +63,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.greyDotColor,
+      backgroundColor: AppColors.greyColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -93,15 +94,18 @@ class _GroceryScreenState extends State<GroceryScreen> {
                       ])),
                   Row(
                     children: [
-                      Container(
-                        width: 44,
-                        height: 44,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color.fromRGBO(212, 212, 212, 1),
-                        ),
-                        child: Image.asset(
-                          "assets/images/notification_icon.png",
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color.fromRGBO(212, 212, 212, 1),
+                          ),
+                          child: Image.asset(
+                            "assets/images/notification_icon.png",
+                          ),
                         ),
                       ),
                       SizedBox(width: 10),

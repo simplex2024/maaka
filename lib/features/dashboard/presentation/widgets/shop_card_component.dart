@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:maaakanmoney/core/constants/app_colors.dart';
 import 'package:sizer/sizer.dart';
+import 'package:maaakanmoney/core/constants/app_colors.dart';
+import 'package:maaakanmoney/core/constants/app_routes.dart';
 
 class ShopCardComponent extends StatelessWidget {
   final String name;

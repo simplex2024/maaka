@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:maaakanmoney/features/auth/presentation/screens/otp_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/cart_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/order_by_voice_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/order_creation_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/order_preview_screen.dart';
+import 'package:maaakanmoney/features/dashboard/presentation/screens/order_status_screen.dart';
 import 'package:maaakanmoney/features/splash_screen/presentation/screens/spalsh_screen.dart';
 import 'package:maaakanmoney/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:maaakanmoney/pages/Auth/phone_auth_widget.dart';
@@ -12,6 +17,10 @@ class AppRoutes {
   static const String otpScreen = '/otpScreen';
   static const String dashboardScreen = '/dashboardScreen';
   static const String orderCreationScreen = '/orderCreationScreen';
+  static const String orderByVoiceScreen = '/orderByVoiceScreen';
+  static const String previewOrderScreen = '/previewOrderScreen';
+  static const String orderStatusScreen = '/orderStatusScreen';
+  static const String cartScreen = '/cartScreen';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -33,9 +42,16 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => OtpScreen());
       case dashboardScreen:
         return MaterialPageRoute(builder: (_) => DashboardScreen());
-    /*  case orderCreationScreen:
+      case orderCreationScreen:
         return MaterialPageRoute(builder: (_) => OrderCreationScreen());
-*/
+      case orderByVoiceScreen:
+        return MaterialPageRoute(builder: (_) => OrderByVoiceScreen());
+      // case previewOrderScreen:
+      //   return MaterialPageRoute(builder: (_) => PreviewOrderScreen(items: items));
+      case orderStatusScreen:
+        return MaterialPageRoute(builder: (_) => OrderStatusScreen());
+      case cartScreen:
+        return MaterialPageRoute(builder: (_) => CartScreen());
       default:
         return null;
     }

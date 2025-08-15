@@ -127,7 +127,7 @@ class UserShoppingCommisionState extends ConsumerState<UserShoppingCommision> {
 
   Future<Map<String, dynamic>> loadServiceAccountCredentials() async {
     String jsonData = await rootBundle
-        .loadString('images/maakanmoney-a6874-9f449586b9b5.json');
+        .loadString(Constants.getNotificationJsonRoot);
     return json.decode(jsonData);
   }
 

@@ -105,7 +105,7 @@ class _PersistentBottomBarComponentState
       isVisible: true,
       decoration: NavBarDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          colorBehindNavBar: AppColors.greyDotColor),
+          colorBehindNavBar: AppColors.greyColor),
      /* animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
           duration: Duration(milliseconds: 400),
