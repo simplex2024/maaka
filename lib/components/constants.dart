@@ -30,8 +30,7 @@ class Constants {
   static String getUserArea = "";
   static String getUserPincode = "";
   static String getRefferer = "";
-
-
+  static String getNotificationJsonRoot = "images/maakanmoney-a6874-75053b1a3a74.json";
 
 
 
@@ -368,4 +367,4 @@ var getNetworkConnection =
 
 enum PaymentService { maakaMoney, shopify, meatBasket }
 
-enum UserType { normalUser, meatShopOwner,cloudKitchen, meatExecutive }
+enum UserType { normalUser, meatShopOwner, cloudKitchen, meatExecutive }

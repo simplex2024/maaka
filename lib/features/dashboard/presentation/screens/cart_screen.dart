@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maaakanmoney/core/constants/app_colors.dart';
+import 'package:maaakanmoney/core/constants/app_routes.dart';
 import 'package:maaakanmoney/core/constants/app_styles.dart';
 import 'package:sizer/sizer.dart';
 
@@ -342,9 +343,11 @@ class _CartScreenState extends State<CartScreen> {
             ),
             if (shops.isNotEmpty)
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.orderStatusScreen);
+                },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: AppColors.greenColor,
                   minimumSize: const Size.fromHeight(50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
