@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const primaryButtonColor = Color.fromRGBO(34, 50, 77, 1);
-  static const primaryBlackTextColor = Color.fromRGBO(0, 0, 0, 1);
-  static const primaryWhiteTextColor = Color.fromRGBO(255, 255, 255, 1);
-  static const greyDotColor = Color.fromRGBO(217, 217, 217, 1);
-  static const subTitleGreyColor = Color.fromRGBO(0, 0, 0, 0.28);
-  static const greySixColor = Color.fromRGBO(0, 0, 0, 0.6);
-  static const groceryColor = Color.fromRGBO(38, 173, 114, 1);
-  static const meatColor = Color.fromRGBO(179, 8, 61, 1);
-  static const eShoppingColor = Color.fromRGBO(23, 190, 145, 1);
-  static const piggyBankColor = Color.fromRGBO(253, 224, 138, 1);
-  static const screenBackgroundColor = Color(0xFFF2F2F2);
-  static const greyDarkColor = Color(0xFFE4E4E4);
-  static const viewMoreButtonColor = Color.fromRGBO(240, 240, 240, 1);
+  const AppColors._();
 
+  static const primary = Color(0xFf22324d);
+  static const primaryDark = Color(0xFF1E3557);
+  static const blackprimaryapp = Color(0xFF121212);
+  static const blacksecondaryapp = Colors.black54;
 }

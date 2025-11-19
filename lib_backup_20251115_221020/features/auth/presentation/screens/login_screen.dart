@@ -104,11 +104,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text(
                       Constant.singUp,
                       style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+LoginGoogleWidget                    ),
                   ],
                 ),
                 const SizedBox(height: 24),
-                LoginGoogleWidget(
+                (
                   labelText: Constant.continueWithGoogle,
                   image: IconImages.googleIconImage,
                 ),
