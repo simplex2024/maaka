@@ -29,20 +29,20 @@ class BottomMenuTheme {
 
   // Default green theme
   static const BottomMenuTheme green = BottomMenuTheme(
-    selectedBackgroundColor: Color(0xFF4CAF50), // Green
+    selectedBackgroundColor: Color(0xFF26AC73), // Vibrant Green
     selectedTextColor: Colors.white,
     selectedIconColor: Colors.white,
     unselectedIconColor: Color(0xFF9E9E9E), // Grey
-    barBackgroundColor: Color(0xFFF5F5F5), // Light grey
+    barBackgroundColor: Colors.white,
   );
 
-  // Blue theme
-  static const BottomMenuTheme blue = BottomMenuTheme(
-    selectedBackgroundColor: Color(0xFF2196F3),
+  // Red theme for Meat module
+  static const BottomMenuTheme red = BottomMenuTheme(
+    selectedBackgroundColor: Color(0xFFC2185B), // Pinkish Red
     selectedTextColor: Colors.white,
     selectedIconColor: Colors.white,
-    unselectedIconColor: Color(0xFF9E9E9E),
-    barBackgroundColor: Color(0xFFF5F5F5),
+    unselectedIconColor: Color(0xFF9E9E9E), // Grey
+    barBackgroundColor: Colors.white,
   );
 
   // Purple theme

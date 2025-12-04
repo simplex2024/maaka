@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'core/theme/app_theme.dart';
-import 'features/splash/screens/splash_screen.dart';
+import 'core/config/theme/app_theme.dart';
+import 'features/splash/presentation/screens/splash_screen.dart';
 
 void main() {
   runApp(const MaakaSampleApp());

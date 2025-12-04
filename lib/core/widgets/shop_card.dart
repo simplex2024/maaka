@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../data/models/shop_models.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/grocery/data/models/shop_models.dart';
+import '../../features/product_list/presentation/bloc/product_bloc.dart';
+import '../../features/product_list/presentation/screens/product_list_screen.dart';
 import '../constants/app_colors.dart';
-import '../constants/app_icons.dart';
 
 class ShopCard extends StatelessWidget {
   final ShopData shop;
@@ -16,16 +18,12 @@ class ShopCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: const Color(0xFFE5E7EB),
-          width: 1,
-        ),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -34,10 +32,10 @@ class ShopCard extends StatelessWidget {
         children: [
           // Shop Image
           ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
             child: Image.asset(
               shop.image,
-              height: 120,
+              height: 110,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -53,35 +51,29 @@ class ShopCard extends StatelessWidget {
                   Text(
                     shop.name,
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 15,
                       fontWeight: FontWeight.w600,
                       color: AppColors.blackprimaryapp,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 8),
+                  
                   // Distance and Rating Row
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Distance
                       Text(
                         shop.distance,
                         style: const TextStyle(
                           fontSize: 12,
-                          color: AppColors.blacksecondaryapp,
+                          color: Color(0xFF26AC73), // Green for distance
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                      const SizedBox(width: 8),
-                      // Rating
                       Row(
                         children: [
-                          const Icon(
-                            Icons.star,
-                            size: 14,
-                            color: Color(0xFFFFC107), // Yellow star
-                          ),
-                          const SizedBox(width: 2),
                           Text(
                             shop.rating,
                             style: const TextStyle(
@@ -90,35 +82,68 @@ class ShopCard extends StatelessWidget {
                               color: AppColors.blackprimaryapp,
                             ),
                           ),
+                          const SizedBox(width: 2),
+                          const Icon(
+                            Icons.star,
+                            size: 14,
+                            color: Color(0xFFFFC107),
+                          ),
                         ],
                       ),
                     ],
                   ),
-                  const SizedBox(height: 6),
-                  // Owner Name
-                  Text(
-                    shop.owner,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: AppColors.blacksecondaryapp,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                  
+                  const SizedBox(height: 12),
+                  
+                  // Owner Row with Avatar
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 12,
+                        backgroundImage: AssetImage('assets/images/owner_avatar.png'), // Placeholder
+                        backgroundColor: Colors.grey[200],
+                        child: const Icon(Icons.person, size: 16, color: Colors.grey),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          shop.owner,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: AppColors.blacksecondaryapp,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
                   ),
+                  
                   const Spacer(),
+                  
                   // View More Button
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(
+                    height: 36,
+                    child: ElevatedButton(
                       onPressed: () {
-                        // Handle view more
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BlocProvider(
+                              create: (context) => ProductBloc(),
+                              child: ProductListScreen(
+                                shop: shop,
+                              ),
+                            ),
+                          ),
+                        );
                       },
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        side: const BorderSide(
-                          color: Color(0xFF4CAF50),
-                          width: 1.5,
-                        ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFF5F5F5),
+                        foregroundColor: AppColors.blackprimaryapp,
+                        elevation: 0,
+                        padding: EdgeInsets.zero,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -128,7 +153,6 @@ class ShopCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF4CAF50),
                         ),
                       ),
                     ),
