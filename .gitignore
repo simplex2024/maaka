@@ -28,3 +28,22 @@ web/.dart_tool/
 *.tmp
 *.lock
 .env
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+
+# IDE files
+.idea/
+*.iml
+android/.idea/
+ios/.idea/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
