@@ -47,3 +47,5 @@ ios/.idea/
 # OS
 .DS_Store
 Thumbs.db
+
+pubspec.lock
